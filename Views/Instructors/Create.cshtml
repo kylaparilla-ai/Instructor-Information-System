@@ -1,0 +1,64 @@
+﻿@model InstructorInformationSystem.Models.Instructor
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Add Instructor - InstructorInformationSystem";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="botanical-page">
+
+    <div class="botanical-card" style="max-width: 460px;">
+        <a asp-controller="Instructors" asp-action="Index" class="botanical-back-btn" title="Back to Dashboard">
+            <i class="fa-solid fa-chevron-left"></i>
+        </a>
+
+        <h1 class="botanical-title">Add Instructor</h1>
+        <p class="botanical-subtitle">Create a new faculty record</p>
+
+        <form asp-controller="Instructors" asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="botanical-error"></div>
+
+            <div class="botanical-field">
+                <i class="fa-solid fa-user field-icon"></i>
+                <input asp-for="FullName" type="text" placeholder="Full Name" required />
+            </div>
+
+            <div class="botanical-field">
+                <i class="fa-solid fa-calendar field-icon"></i>
+                <input asp-for="Age" type="number" placeholder="Age" required />
+            </div>
+
+            <div class="botanical-field">
+                <i class="fa-solid fa-briefcase field-icon"></i>
+                <input asp-for="Designation" type="text" placeholder="Designation" required />
+            </div>
+
+            <div class="botanical-field">
+                <i class="fa-solid fa-graduation-cap field-icon"></i>
+                <input asp-for="Majorship" type="text" placeholder="Majorship" required />
+            </div>
+
+            <div class="botanical-field">
+                <i class="fa-solid fa-envelope field-icon"></i>
+                <input asp-for="EmailAddress" type="email" placeholder="E-mail Address" required />
+            </div>
+
+            <button type="submit" class="botanical-submit-btn" style="margin-top: 8px;">Save Instructor</button>
+        </form>
+
+        <div class="botanical-bottom-text">
+            Want to go back? <a asp-controller="Instructors" asp-action="Index">Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

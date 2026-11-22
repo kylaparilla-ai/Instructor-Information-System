@@ -1,0 +1,50 @@
+﻿@model InstructorInformationSystem.Models.Instructor
+@{
+    ViewData["Title"] = "Edit Instructor";
+}
+
+<div class="auth-container" style="max-width: 600px;">
+    <h2>Edit Instructor</h2>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="InstructorID" />
+
+        <div class="form-group">
+            <label>Instructor ID: <strong>@Model.InstructorID</strong></label>
+        </div>
+        <div class="form-group">
+            <label asp-for="FullName"></label>
+            <input asp-for="FullName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Age"></label>
+            <input asp-for="Age" class="form-control" type="number" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Designation"></label>
+            <input asp-for="Designation" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Gender"></label>
+            <input asp-for="Gender" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Majorship"></label>
+            <input asp-for="Majorship" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="BachelorDegree"></label>
+            <input asp-for="BachelorDegree" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress"></label>
+            <input asp-for="EmailAddress" class="form-control" type="email" />
+        </div>
+
+        <button type="submit" class="btn btn-success" style="margin-top: 10px;">Update Instructor</button>
+        <a asp-action="Index" class="btn btn-secondary" style="margin-top: 10px;">Cancel</a>
+    </form>
+</div>

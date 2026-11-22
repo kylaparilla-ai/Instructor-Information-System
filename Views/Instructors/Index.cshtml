@@ -1,0 +1,83 @@
+﻿@model IEnumerable<InstructorInformationSystem.Models.Instructor>
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Instructor Dashboard - InstructorInformationSystem";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="botanical-dashboard-page">
+
+    <div class="botanical-dashboard-card">
+        <div class="botanical-dash-header">
+            <div>
+                <h1 class="botanical-dash-title">Instructor Management Dashboard</h1>
+                <p class="botanical-dash-subtitle">Faculty records and academic information</p>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <a asp-controller="Instructors" asp-action="Create" class="botanical-pill-btn">
+                    <i class="fa-solid fa-plus"></i> Add New Instructor
+                </a>
+                <a asp-controller="Account" asp-action="Logout" class="botanical-logout-pill">
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="botanical-table-wrap">
+            <table class="botanical-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Age</th>
+                        <th>Designation</th>
+                        <th>Majorship</th>
+                        <th>E-mail Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.InstructorID</td>
+                                <td>@item.FullName</td>
+                                <td>@item.Age</td>
+                                <td>@item.Designation</td>
+                                <td>@item.Majorship</td>
+                                <td>@item.EmailAddress</td>
+                                <td style="white-space: nowrap;">
+                                    <a asp-action="Edit" asp-route-id="@item.InstructorID" class="botanical-action-btn btn-botanical-edit">Edit</a>
+                                    <a asp-action="Details" asp-route-id="@item.InstructorID" class="botanical-action-btn btn-botanical-details">Details</a>
+                                    <a asp-action="Delete" asp-route-id="@item.InstructorID" class="botanical-action-btn btn-botanical-delete">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 24px; color: #7c8d84;">
+                                No instructors found yet. Click <strong>+ Add New Instructor</strong> to create one.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@model InstructorInformationSystem.Models.Instructor
+@{
+    ViewData["Title"] = "Instructor Details";
+}
+
+<div class="auth-container" style="max-width: 600px;">
+    <h2>Instructor Details</h2>
+    <hr />
+    <p><strong>Instructor ID:</strong> @Model.InstructorID</p>
+    <p><strong>Full Name:</strong> @Model.FullName</p>
+    <p><strong>Age:</strong> @Model.Age</p>
+    <p><strong>Address:</strong> @Model.Address</p>
+    <p><strong>Designation:</strong> @Model.Designation</p>
+    <p><strong>Gender:</strong> @Model.Gender</p>
+    <p><strong>Majorship:</strong> @Model.Majorship</p>
+    <p><strong>Bachelor Degree:</strong> @Model.BachelorDegree</p>
+    <p><strong>E-mail Address:</strong> @Model.EmailAddress</p>
+    <br />
+    <a asp-action="Edit" asp-route-id="@Model.InstructorID" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to Dashboard</a>
+</div>
